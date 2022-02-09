@@ -12,6 +12,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @livewireStyles
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -50,7 +51,7 @@
 
         <main class="container mx-auto max-w-[68.5rem] flex">
             <div class="max-w-[17.5rem] mr-5">
-                <div class="bg-white border-2 border-[#328af1] rounded-xl mt-16"
+                <div class="bg-white sticky top-8 border-2 border-[#328af1] rounded-xl mt-16"
                      style="
                            border-image-source: linear-gradient(to bottom, rgba(50, 138, 241, 0.22), rgba(99, 123, 255, 0));
                              border-image-slice: 1;
@@ -125,5 +126,6 @@
                 </div>
             </div>
         </main>
+        @livewireScripts
     </body>
 </html>
