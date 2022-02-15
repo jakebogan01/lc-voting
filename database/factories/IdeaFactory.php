@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class IdeaFactory extends Factory
 {
@@ -11,10 +13,15 @@ class IdeaFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
+        $title = ucwords($this->faker->words(4,true));
+        $slug = Str::slug($title,'-');
         return [
-            //
+            'user_id' => User::factory(),
+            'title'=> $title,
+            'description'=> $this->faker->paragraph(5),
+            'slug'=>$slug,
         ];
     }
 }

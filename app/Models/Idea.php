@@ -12,6 +12,11 @@ class Idea extends Model
 
     protected $guarded = [];
 
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
     /**
      * @return BelongsTo
      */
