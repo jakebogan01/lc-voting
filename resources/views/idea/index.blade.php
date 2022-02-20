@@ -28,7 +28,15 @@
 
     <div class="ideas-container space-y-6 my-6">
         @foreach($ideas as $idea)
-            <div class="idea-container bg-white rounded-xl flex hover:shadow-md transition duration-150 ease-in cursor-pointer">
+            <div
+                x-data
+                @click="const clicked = $event.target
+                        const target = clicked.tagName.toLowerCase()
+                        const ignores = ['button','svg','path','a', 'img']
+                        const ideaLink = clicked.closest('.idea-container').querySelector('.idea-link')
+
+                        !ignores.includes(target) && ideaLink.click()"
+                class="idea-container bg-white rounded-xl flex hover:shadow-md transition duration-150 ease-in cursor-pointer">
                 <div class="border-r border-gray-100 px-5 py-8">
                     <div class="text-center">
                         <div class="font-semibold text-2xl">
@@ -47,12 +55,12 @@
                 <div class="flex flex-1 px-2 py-6">
                     <div class="flex-none">
                         <a href="#">
-                            <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="w-14 h-14 rounded-xl">
+                            <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
                         </a>
                     </div>
                     <div class="w-full flex flex-col justify-between mx-4">
                         <h4 class="text-xl font-semibold">
-                            <a href="{{ route('idea.show', $idea->slug) }}" class="hover:underline">
+                            <a href="{{ route('idea.show', $idea->slug) }}" class="idea-link hover:underline">
                                 {{ $idea->title }}
                             </a>
                         </h4>
