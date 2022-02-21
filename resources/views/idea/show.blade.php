@@ -12,7 +12,7 @@
         <div class="flex flex-1 px-4 py-6">
             <div class="flex-none">
                 <a href="#">
-                    <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
+                    <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl" loading="eager">
                 </a>
             </div>
             <div class="w-full mx-4">
@@ -31,15 +31,15 @@
                         <div>&bull;</div>
                         <div>{{ $idea->created_at->diffForHumans() }}</div>
                         <div>&bull;</div>
-                        <div>Category 1</div>
+                        <div>{{ $idea->category->name }}</div>
                         <div>&bull;</div>
                         <div class="text-gray-900">3 Comments</div>
                     </div>
                     <div
                         x-data="{ isOpen: false }"
                         class="flex items-center space-x-2">
-                        <div class="bg-gray-200 text-[0.625rem] font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">
-                            Open
+                        <div class="{{ $idea->status->classes }} text-[0.625rem] font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">
+                            {{ $idea->status->name }}
                         </div>
                         <button
                             @click="isOpen = !isOpen"
@@ -213,7 +213,7 @@
             <div class="flex flex-1 px-4 py-6">
                 <div class="flex-none">
                     <a href="#">
-                        <img src="https://source.unsplash.com/200x200/?face&crop=face&v=3" alt="avatar" class="w-14 h-14 rounded-xl">
+                        <img src="https://source.unsplash.com/200x200/?face&crop=face&v=3" alt="avatar" class="w-14 h-14 rounded-xl" loading="eager">
                     </a>
                 </div>
                 <div class="w-full mx-4">
@@ -261,7 +261,7 @@
             <div class="flex flex-1 px-4 py-6">
                 <div class="flex-none">
                     <a href="#">
-                        <img src="https://source.unsplash.com/200x200/?face&crop=face&v=2" alt="avatar" class="w-14 h-14 rounded-xl">
+                        <img src="https://source.unsplash.com/200x200/?face&crop=face&v=2" alt="avatar" class="w-14 h-14 rounded-xl" loading="eager">
                     </a>
                     <div class="text-center text-[#328af1] uppercase text-[0.625rem] font-bold mt-1">
                         Admin
@@ -307,7 +307,7 @@
             <div class="flex flex-1 px-4 py-6">
                 <div class="flex-none">
                     <a href="#">
-                        <img src="https://source.unsplash.com/200x200/?face&crop=face&v=3" alt="avatar" class="w-14 h-14 rounded-xl">
+                        <img src="https://source.unsplash.com/200x200/?face&crop=face&v=3" alt="avatar" class="w-14 h-14 rounded-xl" loading="eager">
                     </a>
                 </div>
                 <div class="w-full mx-4">
