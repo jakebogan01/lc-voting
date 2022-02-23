@@ -23,7 +23,7 @@ class IdeaFactory extends Factory
             'status_id' => $this->faker->numberBetween(1, 5),
             'title'=> $title,
             'description'=> $this->faker->paragraph(5),
-            'slug'=>$slug,
+            'slug'=> $slug,
         ];
     }
 }
